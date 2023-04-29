@@ -16,13 +16,13 @@ AnimalTag.init(
     }, animal_id:{
       type:DataTypes.INTEGER,
       references: {
-        model: 'Animal',
+        model: 'animal',
         key: 'id'
       }
     }, tag_id:{
       type: DataTypes.INTEGER,
       references: {
-        model: 'Tags',
+        model: 'tags',
         key: 'id'
       }
     }
@@ -32,7 +32,7 @@ AnimalTag.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'AnimalTag',
+    modelName: 'animalTag',
   }
 );
 

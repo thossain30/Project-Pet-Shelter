@@ -22,7 +22,7 @@ Tags.init(
 sequelize,
 timestamps: false,
 freezeTableName: true,
-modelName: 'Tags'
+modelName: 'tags'
 }
 
 )

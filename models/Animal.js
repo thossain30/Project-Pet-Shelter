@@ -19,13 +19,13 @@ Animal.init(
         }, typeid: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            model: 'Type',
+            model: 'type',
             key: 'id'
         }, breedid: {
             type: DataTypes.INTEGER,
             allowNull: false,
             references:{
-                model: 'Breed',
+                model: 'breed',
                 key: 'id'
             }
 
@@ -36,7 +36,7 @@ Animal.init(
     }, tags: {
         type: DataTypes.INTEGER,
         references:{
-            model:'Tag',
+            model:'tag',
             key: 'id'
         }
 
@@ -47,7 +47,7 @@ Animal.init(
 sequelize,
 timestamps: false,
 freezeTableName: true,
-modelName: 'Animal'
+modelName: 'animal'
 }
 
 )

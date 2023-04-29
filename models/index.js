@@ -3,6 +3,7 @@ const Tags = require('./Tags');
 const Animal = require('./Animal');
 const Breed = require('./Breed');
 const AnimalTag = require('./AnimalTag')
+const User = require('./User')
 
 
 
@@ -34,18 +35,29 @@ Breed.hasMany (Animal, {
 
   Animal.belongsToMany(Tags, {
     through: {
-      model: AnimalTag,
+      model: animalTag,
       unique: false
     }
   })
-  
+
+
   
   Tags.belongsToMany(Animal, {
     through: {
-      model: AnimalTag,
+      model: animalTag,
       unique: false
     }
   })
+
+  User.hasMany(Animal, {
+    foreignKey: 'user_id',
+    onDelete: 'CASCADE'
+  });
+  
+  Animal.belongsTo(User, {
+    foreignKey: 'user_id'
+  });
+  
 
 module.exports = {
   Animal,
@@ -53,4 +65,5 @@ module.exports = {
   Tags,
   Type,
   AnimalTag,
+  User,
 };
