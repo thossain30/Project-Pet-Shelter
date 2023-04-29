@@ -19,7 +19,7 @@ Breed.init(
         }, typeid: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            model: 'Type',
+            model: 'type',
             key: 'id'
        
 }},
@@ -27,7 +27,7 @@ Breed.init(
 sequelize,
 timestamps: false,
 freezeTableName: true,
-modelName: 'Breed'
+modelName: 'breed'
 }
 
 )

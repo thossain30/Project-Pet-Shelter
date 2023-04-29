@@ -22,7 +22,7 @@ Type.init(
 sequelize,
 timestamps: false,
 freezeTableName: true,
-modelName: 'Type'
+modelName: 'type'
 }
 
 )
