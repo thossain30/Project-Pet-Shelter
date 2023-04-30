@@ -35,7 +35,7 @@ Breed.hasMany (Animal, {
 
   Animal.belongsToMany(Tags, {
     through: {
-      model: animalTag,
+      model: AnimalTag,
       unique: false
     }
   })
@@ -44,7 +44,7 @@ Breed.hasMany (Animal, {
   
   Tags.belongsToMany(Animal, {
     through: {
-      model: animalTag,
+      model: AnimalTag,
       unique: false
     }
   })

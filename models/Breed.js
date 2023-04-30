@@ -19,8 +19,10 @@ Breed.init(
         }, typeid: {
             type: DataTypes.INTEGER,
             allowNull: false,
+            references:{
+            
             model: 'type',
-            key: 'id'
+            key: 'id'}
        
 }},
 {
