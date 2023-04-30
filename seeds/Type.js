@@ -1,7 +1,17 @@
-const {Type} = require('./models');
+const {Type} = require('../models');
 
 const typeData = [
     {
-        type_name:'',
+        type:'dog',
+    },
+    {
+        type:'cat',
+    },
+    {
+        type:'bird',
     }
 ]
+
+const seedType = () => Type.bulkCreate(typeData);
+
+module.exports = seedType;
