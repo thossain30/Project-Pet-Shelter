@@ -1,20 +1,43 @@
 // DOM objects
-const userNameEl = document.querySelector('#userName').value.trim()
-// const emailEl = document.querySelector('#registerEmail').value.trim()
-const passwordEl = document.querySelector('#password').trim()
+const userNameEl = document.querySelector('#userName') 
+const passwordEl = document.querySelector('#password')
 const submitFormEl = document.querySelector('#submitForm');
-//const signInButtonEl = document.querySelector('.signInButton');
+// const NameEl = document.querySelector('');
 console.log('hello i am in my js file');
-const loginFormHandler = async (event) => 
+
+
+const signupFormHandler = async (event) => 
 {
     event.preventDefault();
+    //const name = NameEl.value.trim();
+    const userName = userNameEl.value.trim();
+    const passwd = passwordEl.value.trim();
+
+    if (/*name && */userName && passwd) {
+        const response = await fetch('/api/users', {
+          method: 'POST',
+          body: JSON.stringify({ email, passwd }),
+          headers: { 'Content-Type': 'application/json' },
+        });
     
+        if (response.ok) {
+          document.location.replace('/profile');
+        } else {
+          alert(response.statusText);
+        }
+      }
+    
+    // if(userNameEl.value.trim() && passwordEl.value.trim())
+    // {
+    //     const response 
+    //     console.log('username :', userNameEl.value.trim());
+    //     console.log('password :', passwordEl.value.trim());
+    // }
     // Get login information
-    console.log('frontendInfo:', event.target.textContent);
+    
 
 
 
 }
 
-submitFormEl.addEventListener("click", loginFormHandler);
-signInButtonEl.addEventListener("click", loginFormHandler);
+submitFormEl.addEventListener("click", signupFormHandler);
