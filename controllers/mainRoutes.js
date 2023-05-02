@@ -13,7 +13,14 @@ router.get('/login', async (req, res) => {
     res.status(500).json(err)
    }
 })
-
+router.get('/Adam', async (req, res) => {
+   try{
+      res.render('allpets');
+   }catch(err)
+   {
+    res.status(500).json(err)
+   }
+})
 router.get('/', async (req, res) => {
    try {
       const animaldata = await Animal.findAll({
