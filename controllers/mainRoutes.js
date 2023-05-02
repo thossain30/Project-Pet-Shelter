@@ -91,6 +91,7 @@ router.get('/breed/:id', async (req, res) => {
 
       const breedname = breedData.breed;
       const breedanimals = breedData.animals.map((breedanimal) => breedanimal.get({ plain: true }));
+      console.log(breedanimals)
 
 
       res.render('breeds', {
@@ -151,7 +152,8 @@ router.get('/tags/:id', async (req, res) => {
 
 
   
-  });router.get('/types', async (req, res) => {
+  })
+  router.get('/types', async (req, res) => {
    try{
        const typedata = await Type.findAll({
            include:
@@ -161,23 +163,30 @@ router.get('/tags/:id', async (req, res) => {
    }catch(err){
        res.status(400).json(err)
    }
-})
+})*/
 
-router.get('type/:id', async (req, res) => {
+router.get('/type/:id', async (req, res) => {
    try {
      const typeData = await Type.findByPk(req.params.id, {
  
        include:
          [{ model: Breed }, { model: Animal}]
      });
-     if (!typeData) {
-       res.status(404).json({ message: `No ID found for ${req.params.id}` })
-     }
-     res.status(200).json(typeData)
+     console.log(typeData)
+     const typename = typeData.type;
+      const typeanimals = typeData.animals.map((typeanimal) => typeanimal.get({ plain: true }))
+
+
+      res.render('types', {
+         typename,
+         typeanimals,
+         logged_in: req.session.logged_in
+      });
+
    } catch (err) {
-     res.status(500).json(err)
+      res.status(500).json(err)
    }
- 
- });*/
+
+});
 
 module.exports = router;
