@@ -3,16 +3,16 @@ const { Animal, Breed, Tags, Type, User } = require('../models');
 //const withAuth = require('../utils/auth');
 
 
-/*router.get('/', async (req, res) => {
+router.get('/login', async (req, res) => {
    try{
       console.log('rending res object',res);
-        res.render('homepage');
+        res.render('submitpage');
        // res.status(200).json();
    }catch(err)
    {
     res.status(500).json(err)
    }
-})*/
+})
 
 router.get('/', async (req, res) => {
    try {
