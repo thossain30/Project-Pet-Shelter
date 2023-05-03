@@ -33,7 +33,14 @@ Animal.init(
         type: DataTypes.DATEONLY,
         allowNull:false
 
-    }/* tags: {
+    }, picUrl:{
+        type:DataTypes.STRING,
+        allowNull: true,
+        validate:{
+            isUrl: true
+        }
+    }
+    /* tags: {
         type: DataTypes.INTEGER,
         references:{
             model:'tag',

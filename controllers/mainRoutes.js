@@ -14,8 +14,27 @@ router.get('/login', async (req, res) => {
    }
 })
 router.get('/Adam', async (req, res) => {
-   try{
-      res.render('allpets');
+      try {
+         const animaldata = await Animal.findAll({
+            include: [
+               {
+                  model: Type,
+                  attributes: ['type'],
+               },
+               {
+                  model: Breed,
+                  attributes: ['breed']
+               }]
+   
+         });
+         
+         const animals = animaldata.map((animal) => animal.get({ plain: true }));
+   
+   
+         res.render('allpets', {
+            animals,
+            logged_in: req.session.logged_in
+         });
    }catch(err)
    {
     res.status(500).json(err)
