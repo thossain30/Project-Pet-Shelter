@@ -2,19 +2,19 @@ const {Breed} = require('../models');
 
 const breedData = [
     {
-        breed:'labrador',
+        breed:'labrador dog',
         typeid: 1
     },
     {
-        breed:'mix',
+        breed:'unknown dog',
         typeid:1
     },
     {
-        breed:'siamese',
+        breed:'siamese cat',
         typeid:2
     },
     {
-        breed:'mix',
+        breed:'unknown cat',
         typeid:2
     }
 ]
