@@ -26,6 +26,39 @@
 </head>
 <body>
 
+<<<<<<< Updated upstream
+=======
+                <ul class="dropdown-submenu dropdown-menu-right">
+                    {{#each types as |type|}}
+                    <li> <a class="dropdown-item" href="/type/{{id}}">{{type.type}}</a></li>
+                    {{/each}}
+                </ul>
+            </li>
+            <li>
+                <a class="dropdown-item" href="#">Breed &raquo;</a>
+
+                <ul class="dropdown-submenu dropdown-menu-right">
+                    {{#each breeds as |breed|}}
+                    <li> <a class="dropdown-item" href="/breed/{{id}}">{{breed.breed}}</a></li>
+                    {{/each}}
+                </ul>
+            </li>
+            <li>
+                <a class="dropdown-item" href="#">Attributes &raquo;</a>
+
+                <ul class="dropdown-submenu dropdown-menu-right">
+                    {{#each tags as |tag|}}
+                    <li> <a class="dropdown-item" href="/tags/{{id}}">{{tag.tag_name}}</a></li>
+                    {{/each}}
+                </ul>
+            </li>
+
+
+
+
+        </ul>
+    </div>
+>>>>>>> Stashed changes
 
     
 <main>

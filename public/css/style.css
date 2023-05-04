@@ -10,7 +10,8 @@
     display: none;
     position: absolute;
     right: 100%;
-    top: -7px;
+    top: 0px;
+    list-style: none;
     }
     .dropdown-menu .dropdown-submenu-left {
     right: 100%;
