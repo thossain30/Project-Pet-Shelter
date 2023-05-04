@@ -25,7 +25,54 @@
 <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
+    <!-- Header-->
+    <header class="bg-dark py-5">
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="text-center text-white">
+                <h1 class="display-4 fw-bolder">All Pets</h1>
+                <p class="lead fw-normal text-white-50 mb-0">You can take home a new friend today!</p>
+            </div>
+        </div>
+    </header>
+    <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-mdb-toggle="dropdown"
+            aria-expanded="false">
+            Filter
+        </button>
+        <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton">
+            <li>
+                <a class="dropdown-item" href="#">Animal &raquo;</a>
 
+                <ul class="dropdown-menu dropdown-submenu dropdown-menu-end">
+                    {{#each types as |type|}}
+                    <li> <a class="dropdown-item" href="/type/{{id}}">{{type.type}}</a></li>
+                    {{/each}}
+                </ul>
+            </li>
+            <li>
+                <a class="dropdown-item" href="#">Breed &raquo;</a>
+
+                <ul class="dropdown-menu dropdown-submenu">
+                    {{#each breeds as |breed|}}
+                    <li> <a class="dropdown-item" href="/breed/{{id}}">{{breed.breed}}</a></li>
+                    {{/each}}
+                </ul>
+            </li>
+            <li>
+                <a class="dropdown-item" href="#">Attributes &raquo;</a>
+
+                <ul class="dropdown-menu dropdown-submenu">
+                    {{#each tags as |tag|}}
+                    <li> <a class="dropdown-item" href="/tags/{{id}}">{{tag.tag_name}}</a></li>
+                    {{/each}}
+                </ul>
+            </li>
+
+
+
+
+        </ul>
+    </div>
 
     
 <main>
