@@ -20,3 +20,11 @@
     .dropdown-menu > li:hover > .dropdown-submenu {
     display: block;
     }
+
+   
+    .dropdown-menu-right {margin-left: 9.5em;}
+
+    .dropdown-menu-right {
+        right: inherit !important;
+        left: auto;
+    }
