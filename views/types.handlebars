@@ -1,17 +1,17 @@
 
 
-<div class="text-center">
+{{!-- <div class="text-center">
   <h1> Here are the {{typename}} </h1>
   {{#each typeanimals as |typeanimal| }}
   <h3><a href="/animal/{{id}}">{{name}}</a></h3>
   {{/each}}
-</div>
+</div> --}}
 
 
 <section class="py-5">
             <div class="container px-4 px-lg-5 mt-5">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-                    {{#each animals as |animal|}}
+                    {{#each typeanimals as |typeanimal|}}
                     <div class="col">
                         
                         <div class="card ">
@@ -21,7 +21,7 @@
                             <div class="card-body">
                                 <div class="text-center">
                                     <!-- Product name-->
-                                    <h5 class="fw-bolder">{{animal.name}}</h5>
+                                    <h5 class="fw-bolder">{{name}}</h5>
                                     <!-- Product price-->
                                     <h5>{{breed.breed}}</h5>
                                 </div>
