@@ -8,6 +8,7 @@
     }
     .dropdown-menu .dropdown-submenu {
     display: none;
+    /* background-color: antiquewhite; */
     position: absolute;
     right: 100%;
     top: 0px;
@@ -28,3 +29,10 @@
         right: inherit !important;
         left: auto;
     }
+.dropdown-item {
+    background-color: rgb(214, 250, 250);
+}
+
+.dropdown-item:hover {
+    background-color: rgb(162, 252, 252);
+}
