@@ -54,9 +54,8 @@ router.get('/', async (req, res) => {
       const breeds =breedData.map((breed)=> breed.get({plain:true}));
       const tags =tagData.map((tag)=> tag.get({plain:true}))
      
-
+      
       const animals = animaldata.map((animal) => animal.get({ plain: true }));
-
       res.render('allpets', {
          tags,
          breeds,
@@ -100,10 +99,11 @@ router.get('/animal/:id', async (req, res) => {
 
       const animal = animalData.get({ plain: true });
       res.render('oneanimal', {
-         animal,
+         
          types,
          breeds,
          tags,
+         animal,
          logged_in: req.session.logged_in
       });
       
@@ -133,15 +133,17 @@ router.get('/breed/:id', async (req, res) => {
 
       const typeData = await Type.findAll();
       const tagData = await Tags.findAll();
+      const breedData1 = await Breed.findAll();
       const types = typeData.map((type) => type.get({plain:true}));
+      const breeds =breedData1.map((breed)=> breed.get({plain:true}));
       
       const tags =tagData.map((tag)=> tag.get({plain:true}))
 
 
       res.render('breeds', {
          types,
-        
          tags,
+         breeds,
          breedname,
          breedanimals,
          logged_in: req.session.logged_in
@@ -169,13 +171,16 @@ router.get('/tags/:id', async (req, res) => {
 
       const typeData = await Type.findAll();
       const breedData = await Breed.findAll();
+      const tagData = await Tags.findAll();
       const types = typeData.map((type) => type.get({plain:true}));
       const breeds =breedData.map((breed)=> breed.get({plain:true}));
+      const tags =tagData.map((tag)=> tag.get({plain:true}))
       const tagname = tagdata.tag_name;
       const taganimals = tagdata.animals.map((taganimal) => taganimal.get({ plain: true }))
 
 
       res.render('tags', {
+         tags,
          types,
          breeds,
          tagname,
@@ -200,16 +205,20 @@ router.get('/type/:id', async (req, res) => {
       
       const breedData = await Breed.findAll();
       const tagData = await Tags.findAll();
+      const typeData1 = await Type.findAll();
       
       const breeds =breedData.map((breed)=> breed.get({plain:true}));
-      const tags =tagData.map((tag)=> tag.get({plain:true}))
+      const tags =tagData.map((tag)=> tag.get({plain:true}));
+      const types = typeData1.map((type) => type.get({plain:true}));
       const typename = typeData.type;
       const typeanimals = typeData.animals.map((typeanimal) => typeanimal.get({ plain: true }))
+      
 
 
       res.render('types', {
          breeds,
          tags,
+         types,
          typename,
          typeanimals,
          logged_in: req.session.logged_in
