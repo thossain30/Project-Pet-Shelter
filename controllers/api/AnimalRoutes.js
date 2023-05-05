@@ -14,7 +14,7 @@ router.post('/animal', async (req, res) => {
 });
 
 // TESTING ONLY
-router.get('/animal', async (req, res) => {
+router.get('/getAnimal', async (req, res) => {
   try{
     console.log("****************GETTING ALL INFO****************")
     const allAnimal = await Animal.findAll();
