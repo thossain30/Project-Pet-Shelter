@@ -1,6 +1,7 @@
 const breedid = document.querySelector('#breedType').value; 
 const petNameEl = document.querySelector('#name');
-const adoptdate = document.querySelector('#adoptdate').value;
+//const adoptdate = document.querySelector('#adoptdate').value;
+const adopt = document.getElementById('adoptdate');
 const picUrlEl =document.querySelector('#picUrl');
 const addPetEl = document.querySelector('#addPet');
 
@@ -9,13 +10,12 @@ const signupPet= async (event) =>
     event.preventDefault();
     const name = petNameEl.value.trim();
 
-    
+   const adoptdate = adopt.value;
 
     const picUrl = picUrlEl.value.trim();
 
 
     const typeid = 1
-    
 
       const response = await fetch('api/animals/animal', {
        // const response = await fetch('/api/users', {
