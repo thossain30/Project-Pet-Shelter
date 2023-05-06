@@ -10,6 +10,55 @@ router.get('/register', async(req, res)=>{
    }
 })
 
+router.get('/review/:id', async(req, res)=>{
+   
+   try {
+      const animalData = await Animal.findByPk(req.params.id, {
+
+         include:
+            [{
+               model: Type,
+               attribute: ['type']
+            },
+            {
+               model: Breed,
+               attribute: ['breed']
+            },
+            {
+               model: Tags,
+               attribute: ['tag_name']
+            }]
+      });
+
+      const typeData = await Type.findAll();
+      const breedData = await Breed.findAll();
+      const tagData = await Tags.findAll();
+      const types = typeData.map((type) => type.get({plain:true}));
+      const breeds =breedData.map((breed)=> breed.get({plain:true}));
+      const tags =tagData.map((tag)=> tag.get({plain:true}))
+     
+
+      const animal = animalData.get({ plain: true });
+      res.render('reviewForAdpotion', {
+         
+         types,
+         breeds,
+         tags,
+         animal,
+         logged_in: req.session.logged_in
+      });
+   
+   // try{
+     
+
+   //    res.render('reviewForAdpotion')
+     
+   // 
+}catch(err){
+      res.status(500).json(err)
+   }
+})
+
 router.get('/addpet', withAuth, async (req, res) =>{
    try{
    const breedData = await Breed.findAll();

@@ -18,7 +18,7 @@ const breedData = [
         typeid:2
     },
     {
-        breed:'Border Canary',
+        breed:'Bald Eagle',
         typeid:3
     },
     {
