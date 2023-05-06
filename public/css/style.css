@@ -2,7 +2,55 @@
     background-color: aqua;
     color: red;
 } */
+@import url("https://fonts.googleapis.com/css2?family=Exo+2:wght@300;700;900&display=swap");
+.bgcolor {
+    font-family: "Exo 2", sans-serif;
+    background: rgb(63, 161, 251);
+    background: linear-gradient(
+      142deg,
+      rgba(63, 161, 251, 1) 0%,
+      rgba(252, 70, 168, 1) 100%
+    );
+  }
+  .header {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 4rem);
+  }
+  .bottom-title {
+    order: 3;
+    text-align: center;
+    display: block;
+    color: #fff;
+    font-size: clamp(1rem, 4vw, 1.5rem);
+    margin-top: 2rem;
+    padding-left: 2rem;
+  }
+  .title {
+    order: 2;
+    color: #fde9ff;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: clamp(3rem, 10vw, 6rem);
+    line-height: 0.75em;
+    text-align: center;
+    text-shadow: 3px 1px 1px #4af7ff, 2px 2px 1px #165bfb, 4px 2px 1px #4af7ff,
+      3px 3px 1px #165bfb, 5px 3px 1px #4af7ff, 4px 4px 1px #165bfb,
+      6px 4px 1px #4af7ff, 5px 5px 1px #165bfb, 7px 5px 1px #4af7ff,
+      6px 6px 1px #165bfb, 8px 6px 1px #4af7ff, 7px 7px 1px #165bfb,
+      9px 7px 1px #4af7ff;
+  
+  span {
+    display: block;
+    position: relative;
 
+    
+}
+  
 .dropdown-menu li {
     position: relative;
     }
@@ -28,8 +76,22 @@
     .dropdown-menu-right {
         right: inherit !important;
         left: auto;
-    }
-.dropdown-item {
+    }    
+
+    
+    h1 {
+        font-size: 72px;
+        background: -webkit-linear-gradient(#eee, #333);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .register{
+       right: 100% !important;
+       align-items: right;
+    justify-content: right;
+      }
+     .dropdown-item {
     background-color: rgb(214, 250, 250);
 }
 
