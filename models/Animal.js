@@ -39,6 +39,10 @@ Animal.init(
         validate:{
             isUrl: true
         }
+    }, desc:{
+        type:DataTypes.TEXT,
+        allowNull:false,
+
     }
     /* tags: {
         type: DataTypes.INTEGER,
