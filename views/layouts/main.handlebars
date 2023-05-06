@@ -34,6 +34,7 @@
             </div>
         </div>
     </header>
+    {{#if logged_in}}
     <div class="dropdown">
         <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-mdb-toggle="dropdown"
             aria-expanded="false">
@@ -77,6 +78,10 @@
 
 
         </ul>
+         <button class="no-button" id="logout">logout</button>
+        {{else}}
+        <a href="/login">login</a>
+        {{/if}}
     </div>
 
 
@@ -91,5 +96,8 @@
   type="text/javascript"
   src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.js"
 ></script>
+{{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
 </body>
 </html>

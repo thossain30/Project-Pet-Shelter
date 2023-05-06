@@ -7,32 +7,7 @@ const submitFormEl = document.querySelector('#submitForm');
 console.log('hello i am in my js file');
 
 
-// const signupFormHandler = async (event) => 
-// {
-//     event.preventDefault();
-//     //const name = NameEl.value.trim();
-//     const userName = userNameEl.value.trim();
-//     const passwd = passwordEl.value.trim();
-//     const email = emailEl.value.trim();
-//     console.log("****************GENERATING DATA 1****************")
-//     if ( email && userName && passwd) {
-//       // console.log('Submitting info')
-//       const response = await fetch('api/users/login', {
-//        // const response = await fetch('/api/users', {
-//           method: 'GET',
-//           body: JSON.stringify({ userName, email, passwd }),
-//           headers: { 'Content-Type': 'application/json' },
-//         });
-//         console.log('RESPONSE:',response)
-//         if (response.ok) {
-//           console.log("****************RESPONSE IS OK 1****************")
-//           document.location.replace('/login');
-//         } else {
-//           alert(response.statusText," Failed to create profile");
-//         }
-//       }
-    
-// }
+
 
 const signupFormHandler = async (event) => 
 {
@@ -42,9 +17,12 @@ const signupFormHandler = async (event) =>
     const password = passwordEl.value.trim();
     const email = emailEl.value.trim();
     console.log("****************GENERATING DATA 1****************")
+    console.log(username)
+    console.log(password)
+    console.log(email)
     if ( email && username && password) {
       // console.log('Submitting info')
-      const response = await fetch('api/users/login', {
+      const response = await fetch('api/users/register', {
        // const response = await fetch('/api/users', {
           method:'POST',
           body: JSON.stringify({  username, email, password }),
@@ -53,7 +31,7 @@ const signupFormHandler = async (event) =>
         console.log('RESPONSE:',response)
         if (response.ok) {
           console.log("****************RESPONSE IS OK 1****************")
-          document.location.replace('/login');
+          document.location.replace('/');
         } else {
           alert(response.statusText," Failed to create profile");
         }
