@@ -1,9 +1,3 @@
-{{!-- <div class="text-center">
-  <h2>{{name}}</h2>
-  <p>{{type.type}}</p>
-  <p>{{breed.breed}}</p>
-</div> --}}
-
 <section class="py-5">
             <div class="container px-4 px-lg-5 mt-5">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
@@ -22,13 +16,13 @@
                                     <h5>{{type.type}}</h5>
                                     <h5>{{breed.breed}}</h5>
                                     <p>{{animal.desc}}</p>
-                                    <h5 class="fw-bolder">Time left to adopt {{animal.name}}</h5>
-                                    <p id="countdown"></p>
+                                    <h5 class="fw-bolder">We have received your Request! We will contact you after review for {{animal.name}}</h5>
+                                    
                                 </div>
                             </div>
                             <!-- Product actions-->
                             <div class="p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="/review/{{animal.id}}">Adopt</a></div>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="/">Back To Home</a></div>
                                 {{!-- <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="/animal/{{animal.id}}">Adopt</a></div> --}}
                             </div>
                         </div>
@@ -37,4 +31,5 @@
                 </div>
             </div>
 
-            <script src="/js/countdown.js"></script>
+
+{{!-- <p id="review">We have received your Request! We will contact you after review</p> --}}
