@@ -2,6 +2,14 @@ const router = require('express').Router();
 const { Animal, Breed, Tags, Type, User } = require('../models');
 const withAuth = require('../utils/auth');
 
+router.get('/addpet', async (req, res)=>{
+   try{
+      res.render('addpet')
+   }catch(err){
+      res.status(500).json(err)
+   }
+})
+
 router.get('/register', async(req, res)=>{
    try{
       res.render('register')
