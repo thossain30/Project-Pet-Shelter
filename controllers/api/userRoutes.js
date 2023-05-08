@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User } = require('../../models');
+const { findAll } = require('../../models/Type');
 const withAuth = require('../../utils/auth');
 
 //   router.post('/lskdfjlsdjgy', async (req, res) => {
@@ -23,6 +24,16 @@ const withAuth = require('../../utils/auth');
 // });
 
 // testing
+router.get('/user', async (req, res)=>{
+  try{
+  const userData = await User.findAll();
+    res.status(200).json(userData);
+  }catch(err){
+    res.status(500).json(err);
+  }
+
+  }
+)
 router.post('/register', async (req, res) => {
   try {
     const userData = await User.create({
@@ -51,6 +62,7 @@ router.post('/login', async (req, res) => {
     }
 
     const validPassword = await userData.checkPassword(req.body.password);
+    console.log(validPassword)
 
     if (!validPassword) {
       res
@@ -60,15 +72,13 @@ router.post('/login', async (req, res) => {
     }
 
     req.session.save(() => {
-      req.session.user_id = userData.id;
+      
       req.session.logged_in = true;
       
-      // res.json({ user: userData, message: 'You are now logged in!' });
+       res.json({ user: userData, message: 'You are now logged in!' });
     });
-    res.render('/')
-
   } catch (err) {
-    res.status(400).json(err);
+    res.status(500).json(err);
   }
 });
 
