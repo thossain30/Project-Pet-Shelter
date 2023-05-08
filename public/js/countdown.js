@@ -1,5 +1,6 @@
 // edit this to add animal adopt date
-var end = new Date('05/19/2023 10:1 AM');
+var date = document.getElementById('countdown').getAttribute('data-date');
+var end =  new Date(date);
 
     var _second = 1000;
     var _minute = _second * 60;
