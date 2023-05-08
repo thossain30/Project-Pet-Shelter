@@ -16,6 +16,14 @@ const breedData = [
     {
         breed:'unknown cat',
         typeid:2
+    },
+    {
+        breed:'Bald Eagle',
+        typeid:3
+    },
+    {
+        breed:'unknown bird',
+        typeid:3
     }
 ]
 
