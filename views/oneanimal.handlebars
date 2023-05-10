@@ -21,7 +21,6 @@
                                     <!-- Product price-->
                                     <h5>{{type.type}}</h5>
                                     <h5>{{breed.breed}}</h5>
-
                                     <p>{{animal.desc}}</p>
                                     <h5 class="fw-bolder">Time left to adopt {{animal.name}}</h5>
                                     <p id="countdown" data-date= "{{animal.adoptdate}}"></p>
@@ -29,12 +28,12 @@
                             </div>
                             <!-- Product actions-->
                             <div class="p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="/animal/{{animal.id}}">Adopt</a></div>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="/review/{{animal.id}}">Adopt</a></div>
+                                {{!-- <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="/animal/{{animal.id}}">Adopt</a></div> --}}
                             </div>
                         </div>
                        
                     </div>
-
                 </div>
             </div>
 

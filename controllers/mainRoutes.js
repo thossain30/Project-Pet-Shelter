@@ -1,10 +1,73 @@
 const router = require('express').Router();
 const { Animal, Breed, Tags, Type, User } = require('../models');
-//const withAuth = require('../utils/auth');
+const withAuth = require('../utils/auth');
 
+router.get('/addpet', async (req, res)=>{
+   try{
+      res.render('addpet')
+   }catch(err){
+      res.status(500).json(err)
+   }
+})
 
+router.get('/register', async(req, res)=>{
+   try{
+      res.render('register')
+   }catch(err){
+      res.status(500).json(err)
+   }
+})
 
-router.get('/addpet', async (req, res) =>{
+router.get('/review/:id', async(req, res)=>{
+   
+   try {
+      const animalData = await Animal.findByPk(req.params.id, {
+
+         include:
+            [{
+               model: Type,
+               attribute: ['type']
+            },
+            {
+               model: Breed,
+               attribute: ['breed']
+            },
+            {
+               model: Tags,
+               attribute: ['tag_name']
+            }]
+      });
+
+      const typeData = await Type.findAll();
+      const breedData = await Breed.findAll();
+      const tagData = await Tags.findAll();
+      const types = typeData.map((type) => type.get({plain:true}));
+      const breeds =breedData.map((breed)=> breed.get({plain:true}));
+      const tags =tagData.map((tag)=> tag.get({plain:true}))
+     
+
+      const animal = animalData.get({ plain: true });
+      res.render('reviewForAdpotion', {
+         
+         types,
+         breeds,
+         tags,
+         animal,
+         logged_in: req.session.logged_in
+      });
+   
+   // try{
+     
+
+   //    res.render('reviewForAdpotion')
+     
+   // 
+}catch(err){
+      res.status(500).json(err)
+   }
+})
+
+router.get('/addpet', withAuth, async (req, res) =>{
    try{
    const breedData = await Breed.findAll();
       
@@ -24,15 +87,14 @@ router.get('/addpet', async (req, res) =>{
    }}
 )
 router.get('/login', async (req, res) => {
-   try {
-      console.log('rending res object', res);
-      res.render('submitpage');
-      // res.status(200).json();
-   } catch (err) {
-      res.status(500).json(err)
+   if(req.session.logged_in){
+      res.redirect('/')
+      return
    }
+      
+   res.render('login');
 })
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
    try {
       const animaldata = await Animal.findAll({
          include: [
@@ -70,7 +132,7 @@ router.get('/', async (req, res) => {
 
 
 
-router.get('/animal/:id', async (req, res) => {
+router.get('/animal/:id', withAuth, async (req, res) => {
    try {
       const animalData = await Animal.findByPk(req.params.id, {
 
@@ -116,7 +178,7 @@ router.get('/animal/:id', async (req, res) => {
 
 
 
-router.get('/breed/:id', async (req, res) => {
+router.get('/breed/:id',  withAuth, async (req, res) => {
    try {
       const breedData = await Breed.findByPk(req.params.id, {
 
@@ -157,7 +219,7 @@ router.get('/breed/:id', async (req, res) => {
 
 });
 
-router.get('/tags/:id', async (req, res) => {
+router.get('/tags/:id', withAuth, async (req, res) => {
    try {
 
       const tagdata = await Tags.findByPk(req.params.id, {
@@ -195,7 +257,7 @@ router.get('/tags/:id', async (req, res) => {
 });
 
 
-router.get('/type/:id', async (req, res) => {
+router.get('/type/:id', withAuth, async (req, res) => {
    try {
       const typeData = await Type.findByPk(req.params.id, {
 
