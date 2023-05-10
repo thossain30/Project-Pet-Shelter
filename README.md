@@ -39,3 +39,4 @@ This application technology stack includes: JS, MySQL, NODEJS, OOP, Express, Han
 * Be interactive (i.e., accept and respond to user input).
 
 * Meet good-quality coding standards (file structure, naming conventions, follows best practices for class/id naming conventions, indentation, quality comments, etc.) .
+![Capture](https://github.com/thossain30/group2-project-Pet-Shelter/assets/107295752/02040540-bbb9-4ec8-b348-afb21feeb69f)
