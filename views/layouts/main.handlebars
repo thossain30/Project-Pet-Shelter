@@ -82,11 +82,12 @@
         </ul>
         </div>
 
+  
 
-        <div class="container">
+        <div class="container" id="buttonset">
         <div class="row align-items-end">
           <div class="col">
-         <button class="" id="logout">logout</button>
+         <button class="btn btn-primary" id="logout">logout</button>
          </div>
         </div>
         {{else}}
@@ -98,7 +99,7 @@
         {{/if}}
         <div class="row">
         <div class="col">
-         <button type="button" class="btn btn-primary ">Register A Pet</button>
+         <button type="button" ><a class="btn btn-primary" href="/addpet">Register A Pet</a></button>
          </div>
          </div>
     </div>
@@ -124,4 +125,9 @@
   <script src="/js/logout.js"></script>
   {{/if}}
 </body>
+<footer class="bgcolor">
+  <p class =" display-4 fw-bolder title">Pet Hub</p>
+  <p class ="footer-text" style="text-align:right">Contact: pethub@gmail.com</p>
+  <p class ="footer-text" style="text-align:right">678-232-PETS</p>
+</footer>
 </html>
