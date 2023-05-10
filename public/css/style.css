@@ -98,6 +98,7 @@ h1 {
   background-color: rgb(162, 252, 252);
 }
 
+
 .hide-bg {
   mix-blend-mode: multiply !important;
 }
@@ -118,3 +119,5 @@ justify-content: end;
     font-weight: bolder;
    color:#ffffff;
 }
+=======
+
