@@ -1,5 +1,6 @@
 // edit this to add animal adopt date
-var end = new Date('05/19/2023 10:1 AM');
+var date = document.getElementById('countdown').getAttribute('data-date');
+var end =  new Date(date);
 
     var _second = 1000;
     var _minute = _second * 60;
@@ -7,14 +8,27 @@ var end = new Date('05/19/2023 10:1 AM');
     var _day = _hour * 24;
     var timer;
 
+    const id = document.getElementById('countdown').getAttribute('data-id');
     function showRemaining() {
         var now = new Date();
         var distance = end - now;
         if (distance < 0) {
 
             clearInterval(timer);
-            document.getElementById('countdown').innerHTML = 'EXPIRED!';
-
+            document.getElementById('countdown').innerHTML = 'Time is up';
+            const response = async (event) => { await fetch(`api/animals/animal/${id}`, {
+                   method:'DELETE',
+                   headers: { 'Content-Type': 'application/json' },
+                 });
+                 console.log('RESPONSE:',response)
+                 if (response.ok) {
+                   console.log(`Pet with id: ${id} is no longer available for adoption.`)
+                   document.location.replace('/');
+                  
+                 } else {
+                   alert(response.statusText," Failed to delete pet");
+                 }
+            }
             return;
         }
         var days = Math.floor(distance / _day);
