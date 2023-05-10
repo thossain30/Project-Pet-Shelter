@@ -13,8 +13,14 @@ var end =  new Date(date);
     function showRemaining() {
         var now = new Date();
         var distance = end - now;
+
+        var days = Math.floor(distance / _day);
+        var hours = Math.floor((distance % _day) / _hour);
+        var minutes = Math.floor((distance % _hour) / _minute);
+        var seconds = Math.floor((distance % _minute) / _second);
+
         if (distance < 0) {
-          end = new Date(date);
+          days += 100;
             // clearInterval(timer);
             // document.getElementById('countdown').innerHTML = 'Time is up';
             // const response = async (event) => { await fetch(`api/animals/animal/${id}`, {
@@ -32,10 +38,6 @@ var end =  new Date(date);
             // }
             return;
         }
-        var days = Math.floor(distance / _day);
-        var hours = Math.floor((distance % _day) / _hour);
-        var minutes = Math.floor((distance % _hour) / _minute);
-        var seconds = Math.floor((distance % _minute) / _second);
 
         document.getElementById('countdown').innerHTML = days + ' days, ';
         document.getElementById('countdown').innerHTML += hours + ' hrs, ';
