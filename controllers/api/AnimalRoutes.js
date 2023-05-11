@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Animal, Breed, Tags, Type, User} = require('../../models');
+const { Animal} = require('../../models');
 
 
 router.post('/animal', async (req, res) => {

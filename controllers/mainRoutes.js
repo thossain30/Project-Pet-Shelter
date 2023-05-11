@@ -41,7 +41,7 @@ router.get('/review/:id', async(req, res)=>{
      
 
       const animal = animalData.get({ plain: true });
-      res.render('reviewForAdpotion', {
+      res.render('reviewForAdoption', {
          
          types,
          breeds,
@@ -144,7 +144,7 @@ router.get('/animal/:id', withAuth, async (req, res) => {
                attribute: ['tag_name']
             }]
       });
-
+      console.log(animalData.name, animalData.typeid, animalData.breedid, animalData.adoptdate, animalData.picUrl)
       const typeData = await Type.findAll();
       const breedData = await Breed.findAll();
       const tagData = await Tags.findAll();

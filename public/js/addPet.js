@@ -1,4 +1,4 @@
-const breedid = document.querySelector('#breedType').value; 
+const breedidEl = document.querySelector('#breedType'); 
 const petNameEl = document.querySelector('#name');
 //const adoptdate = document.querySelector('#adoptdate').value;
 const adopt = document.getElementById('adoptdate');
@@ -9,28 +9,29 @@ const signupPet= async (event) =>
 {
     event.preventDefault();
     const name = petNameEl.value.trim();
-
-   const adoptdate = adopt.value;
-
+    const typeid = 1;
+    const breedid = breedidEl.value;
+    const adoptdate = adopt.value;
     const picUrl = picUrlEl.value.trim();
+    console.log(name, typeid, breedid, adoptdate, picUrl)
 
 
-    const typeid = 1
-
+    
+if(name && adoptdate){
       const response = await fetch('api/animals/animal', {
        // const response = await fetch('/api/users', {
           method:'POST',
-          body: JSON.stringify({  name, typeid, breedid, adoptdate, picUrl }),
-          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({name, typeid, breedid, adoptdate, picUrl}),
+          headers: { 'Content-Type': 'application/json'},
         });
-        console.log('RESPONSE:',response)
+        
         if (response.ok) {
-          console.log("****************RESPONSE IS OK 1****************")
+          console.logdocument.location.replace('/');
          
         } else {
           alert(response.statusText," Failed to add pet");
         }
-      }
+      }}
     
 
 

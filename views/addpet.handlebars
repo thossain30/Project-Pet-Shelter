@@ -1,13 +1,14 @@
 <div>
 <form >
+        <label for="name" >Pet's name:</label><br>
+        <input type="text" id="name" name="name" ><br>
         <label for="breedType" >What type of pet do you have for adoption?</label><br>
          <select style="width:200px" id="breedType" name="breedType">
             {{#each breeds as |breed|}}
             <option value="{{breed.id}}">{{breed.breed}}</option>
             {{/each}}
         </select><br>
-        <label for="name" >Pet's name:</label><br>
-        <input type="text" id="name" name="name" ><br>
+        
 
         <label for="adoptdate" >When does this pet need to be adopted?</label><br>
         <input type="date" id="adoptdate" name="adoptdate" ><br>
