@@ -41,7 +41,7 @@ Animal.init(
         }
     }, desc:{
         type:DataTypes.TEXT,
-        allowNull:false,
+        allowNull:true,
 
     }
     /* tags: {
